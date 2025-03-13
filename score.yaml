@@ -15,12 +15,15 @@ containers:
     variables:
       Hello: World
       mysql_connstr: mysql://${resources.myria.username}:${resources.myria.password}@${resources.myria.host}:${resources.myria.port}/${resources.myria.name}
+      redis_connstr: redis://${resources.reddy.host}:${resources.reddy.port}
 
 resources:
   dns: # We need a DNS record to point to the service 
     type: dns
   myria:
     type: mysql
+  reddy:
+    type: redis
   route:
     type: route
     params:
